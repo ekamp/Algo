@@ -81,3 +81,29 @@
 - Divide with N to find how many times N can be in the product (q) subtract q * N from product
 - Overall this will take <b>O(n^2)</b>
 
+##Number Theory
+ Have to solve two problems
+ ###Primality
+ - Given a number N determine whether it is prime
+ - There is an efficent solution
+ ###Factoring
+ - Given a number N express it as a product of prime numbers
+
+- Old methodology : Private key protocol Alice and bob know r
+- Lets say we set er(x) = x XOR r (encryption)
+    - er (11110000) = 100000010 
+    - r = 022200010
+    - d(e(x)) = e(x) XOR r = (x XOR r) XOR r = x XOR (r XOR r) = x XOR 0 = x
+    - r should be selected randomly
+    - For instance y = 10 is the message to transmit
+        - r = 00 ---> 10
+        - r = 01 ---> 11
+        - r = 10 ---> 00
+        - r = 11 ---> 01
+    - But then you have to discard r after a transmission
+    - x XOR r
+    - z XOR r
+    - Eve could apply (x XOR r) XOR (z XOR r) = x XOR z
+
+###Public Key Cryptopgraphy (RSA)
+- Each person will have a public key known to everyone and a secret key only known by them
