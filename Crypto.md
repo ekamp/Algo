@@ -86,3 +86,10 @@
 - x mod n to x^2 mod N x^4 n x^16 mod n...
 - How many multiplications will you need now ---> log(y)
 - How much time does it take to compute each one of them? --> O(n^2) = O(log(y)^2)
+
+###Examples
+- x^25 = x ^ (11001 base 2) = x^(10000) * x^(01000) * x^(00001) = x^16 * x^8 * x^1
+- function mod exp(x,y,n) if y = 0 return 1
+- z = modexp(x,y/2,n)
+- if y is even return z^2 mod N
+- else return x * z^2 mod N
