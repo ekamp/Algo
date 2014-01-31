@@ -51,3 +51,17 @@
 - None of these will be zero and none will be equal
 - This works because a * i mod p are all distinct and different from zero
 - if a*i = s * j mod p
+
+###Summary of RSA
+- Bob : Pick 2 large n-bit random prime numbers p and q
+    - Publish your public key (N.e) N =p*q and e relative prime to (p-1)(q-1)
+    - Compute private key d = e^-1 mod (p-1)(q-1)
+- Alice : Generates encrypted messages y = x^e mod N
+- Bob : Decode message x = y^d mod N
+- To break the system eve must be able to compute the original message x given y and the pub key (N,e)
+- Try to guess x so that y = X^e mod N
+- Exponential number of guesses as a function of n (number of bits for p,q)
+- Alternatively Eve can try to find values p and q so as to compute d = e^d mod (p-1)(q-1)
+- What do we know about p and q
+- They are both primes and p*q = N
+- But this is the factoring problem and is beleived to be u nfactorable
