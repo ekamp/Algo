@@ -47,3 +47,7 @@
     - Then it must be a multiple of N = p * q
 - Lets prove this
 - a = 3 p =7
+- Consider the sets S = {1,2...p-1} = { 0 * 1 mod p , 0 2 mod p , a(p-1) mod p}
+- None of these will be zero and none will be equal
+- This works because a * i mod p are all distinct and different from zero
+- if a*i = s * j mod p
