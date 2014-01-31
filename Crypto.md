@@ -1,4 +1,4 @@
-#Security / Crypto
+#Security / Crypto 1/31/2014
 
 ##Public key encrytion
 - Think of messages as modulo N (Larger messages can be broken into smaller peices
@@ -65,3 +65,24 @@
 - What do we know about p and q
 - They are both primes and p*q = N
 - But this is the factoring problem and is beleived to be u nfactorable
+
+###RSA Opperations and Running Time
+- Modular exponentiation y = e^x mod N / x = y^d mod N
+- Selected e so relative prime to (p-1)(q-1)
+- Compute d = e ^-1 mod (p-1)(q-1)
+
+###Why is this secure?
+- To break the system eve must be able to compute x given y and (N,e)
+- Try to guess x so that y = x^e mod N Exponential number of guesses as a function of n number of bits for p,q
+
+###Modular Exponentiation
+- x^y mod N
+- How big can X^y get?
+- for 20 bit numbers 2^19.123123
+- We need to perform all intermediate computations mod N
+- x mod N x^2 mod N x^3 mod N
+- if y is 500 bits long then I have to do the multiplication 2^500
+- Idea : square every intermediate result
+- x mod n to x^2 mod N x^4 n x^16 mod n...
+- How many multiplications will you need now ---> log(y)
+- How much time does it take to compute each one of them? --> O(n^2) = O(log(y)^2)
