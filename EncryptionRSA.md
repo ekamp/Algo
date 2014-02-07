@@ -21,3 +21,10 @@
   - so it is a common divisor for x and y
   - gcd(x,y) = gcd(x,x-y)
   - gcd(y,x-y) <= gcd(x,y)
+
+##Function Euclid
+      if(b == 0)
+      {
+        return a;
+      }
+      return Euclid(b, a mod b);
