@@ -96,4 +96,6 @@
 - if a^N-1  = 1 mod N for some a relative prime to N, then it must be the case that the primality test will fail for at least half the choices of a.
 - Proof : fpr all b < N so that the primality test succeeds then there must be a number (a*b) so that
   (a*b)^N-1 = a^N-1 b^n-1 != 1 mod N
-
+- All these elements (a*b) for fixed a's and b's are distinct. So at least half of the numbers < n will fail
+- pr(algo returning success for n prime) = 1
+- pr(algo retruning success for n non-prime) <= 1/2
