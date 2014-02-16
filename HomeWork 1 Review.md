@@ -118,3 +118,30 @@ http://postimg.org/image/wyzp1vne1
   - O(n^d * log(n)) if a = b^d
   - O(n^d) if a < b^d
   - O(n^logb(a)) if a > b^d
+
+####Master Method Examples
+- <b>Merge Sort</b> :
+  - a = 2 recursive calls
+  - b = 2 reduction
+  - d = 1 meaning linear work out of recursion
+  - case 1 a = b^d ---> 2 = 2^1 
+  - runtime therefore is O(nlogn)
+- <b>Binary Search</b> 
+  - a = 1 recursive call
+  - b =2 reduction
+  - d = 0 work outside of recursion
+  - again this is in case 1
+  - therefore we have a runtime O(logn)
+- <b>Grade school multiplication non-Gauss</b> 
+  - a = 4
+  - b = 2
+  - d = 1
+  - 4 > 2^1
+  - Case 3 O(n^logb(a)) which is O(n^(log2(4)) = O(n^2)
+- <b>Gauss's Multiplication</b>
+  - a = 3
+  - b = 2
+  - d = 1
+  - 3 > 2^1
+  - Case 3 O(n^(log2(3))) = O(n^1.6)
+
