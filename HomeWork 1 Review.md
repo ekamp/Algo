@@ -29,5 +29,22 @@ http://postimg.org/image/wyzp1vne1
 - If T(n) strictly lower bounds f(n) meaning just less than.
 - For all constants c > 0 there exists a constant n0 such that T(n) <= cf(n) for all n >= n0
 
+##Arithmetic
 
+###Addition
+- Addition should take O(n) time assuming that were adding thousand bit numbers
+- bits <= 32 bit will take O(1) time
+
+###Multiplication/Division
+- Multiplication and Division should take O(n^2) time again using the assumption that the numbers are many bits long
+
+
+##Modular Arithmetic
+- <b>Modular Arithmetic</b> is a system used for dealing with restricted ranges of integers.
+- <b>x modulo N</b> is seen as the remainder when x is divided by N.
+- <b>Congruent Modulo</b> x and y are congruent modulo if the differ by a multiple N
+  - For example 253 is congruent modulo to 13 mod 60 because ---> 253-13 = 240 which is a multiple of 60
+  - <b>Substitution Rule</b> if x congruent to x' (mod N) and if y congruent to y' (mod N) then :
+    - x+y is congruent to x' + y' (mod N) and x*y is congruent to x' * y' (mod N)
+    
 
