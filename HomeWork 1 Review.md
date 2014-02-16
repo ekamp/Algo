@@ -94,3 +94,27 @@ http://postimg.org/image/wyzp1vne1
 - For example for a long string or message once sent or encrypted one applys the encryption to each 128 bit segment of the larger string. In order to decode one does the same. At present time general public cannot crack this encryption.
 - <b>RSA Encryption</b> : the sender has a public key which encrypts the data. Once sent and recieved the data is decrypted via the recievers private key. 
 - RSA scheme is : the encryption function(modulo N) is a bijection on 0 ---> N-1 and the decryption is its inverse.
+
+##Divide and Conquer Algorithms
+- Solves a problem by breaking it into subproblems, recursively solving the subproblems and approriately combining their answers.
+- T(n) = aT(celi(n/b)) + O(n^d) runtime
+- The maximum number of operations the algorithm needs
+
+###Masters Method
+- Used to analyse recursive / recurrances (black box for solving recurrences)
+- Recurrance formatting
+  - Base case : T(n) <= a constant meaning we hit one number
+  - For larger n : T(n) <= aT(n/b) + O(n^d)
+  - Where a is the number of recursice calls
+  - b is the factor by which the input size shrinks from recursion
+  - d is the amount of work done outside of the recursive calls
+  - These are all independent on the input size n
+- Guass's integer multiplication :
+  - Algo : Recursively compute ac, ba , (a +b)(c+d)
+  - Recurance : 
+    - Base case : T(1) <= a constant 
+    - For all n > 1 : T(n) <= 3T(n/2) + O(n)
+- Master Method has three different runtimes :
+  - O(n^d * log(n)) if a = b^d
+  - O(n^d) if a < b^d
+  - O(n^logb(a)) if a > b^d
