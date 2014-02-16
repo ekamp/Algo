@@ -100,6 +100,15 @@ http://postimg.org/image/wyzp1vne1
 - T(n) = aT(celi(n/b)) + O(n^d) runtime
 - The maximum number of operations the algorithm needs
 
+###Merge Sort
+- Will use a recursion tree
+- Make two recursive calls each level of the tree per node
+- This stops when you hit the base case where the array size is 0 or 1
+- A recursion tree has roughly log2(n) height if it has a length of n
+- At each level j...log2(n) there are 2^j subproblems each of size n/2^j
+- At each level we do 6n amount of work independent of the level j
+- The total <= 6n*(log2(n) + 1)
+
 ###Masters Method
 - Used to analyse recursive / recurrances (black box for solving recurrences)
 - Recurrance formatting
@@ -144,4 +153,9 @@ http://postimg.org/image/wyzp1vne1
   - d = 1
   - 3 > 2^1
   - Case 3 O(n^(log2(3))) = O(n^1.6)
-
+- <b>Strassen's Matrix Multiplication</b>
+  - a = 7
+  - b = 2
+  - d = 2
+  - 7 > 2^2 -> case 3
+  - Runtime is now O(n^log2(7)) = O(n^2.8)
