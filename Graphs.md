@@ -35,11 +35,11 @@ G(V,E)
 - Process over the entire graph using dykstras
 <b>Procedure</b> : Explore (G,v) where G is the input graph and v is the start vertex
 
-       Visited (v) = true
+       `Visited (v) = true
        Previsit (v),
        for each edge (u,y) there exists T
          if (visited u == false)
          {
            Explore (G,u)
          }
-      post visit(v)
+      post visit(v)`
