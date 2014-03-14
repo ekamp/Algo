@@ -17,13 +17,14 @@ G(V,E)
 - This will take O(n^2) space
 
 ###Adjacency List
+
 |Node|Connections|
-------------------
-|A|D|
-|B|C->D|
-|C|B->E|
-|D|A->B->E|
-|E|C->D|
+|----|----------:|
+|A   |D          |
+|B   |C->D       |
+|C   |B->E       |
+|D   |A->B->E    |
+|E   |C->D       |
 
 - Now this only takes O(n) space assuming it is sparse
 - Lookup now becomes O(n)
