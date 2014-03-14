@@ -28,3 +28,18 @@ G(V,E)
 
 - Now this only takes O(n) space assuming it is sparse
 - Lookup now becomes O(n)
+
+
+###Graph Search
+- Given V and S is there a path from V to S
+- Process over the entire graph using dykstras
+<b>Procedure</b> : Explore (G,v) where G is the input graph and v is the start vertex
+
+       Visited (v) = true
+       Previsit (v),
+       for each edge (u,y) there exists T
+         if (visited u == false)
+         {
+           Explore (G,u)
+         }
+      post visit(v)
