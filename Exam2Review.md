@@ -10,7 +10,7 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
   - This loop continues until there is no more change to give
   - For example if change is 35 cents then it starts by selecting a quarter which is 25 cents then a dime and so on
 
-##Huffman Coding
+###Huffman Coding
 <i>Huffman Coding is used to compress data in order to save space</i>
 - In order to save space Huffman coding uses a prefix-free binary tree in order to encode
 - In order to optimize the tree and save as much space as possible we want to make sure each leaf corresponds to a symbol
@@ -40,10 +40,20 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
 <b>Basically how many elements out of a set are needed to satisfy some condition</b>
 - An example is suppose you have a set of schools Si and you want to see how many schools from the set will cover the country, essencially outputting a set of Sx Schools
 - More generally we can see that B contains n elements and that the optimal cover consists of k sets, then the greedy will use (kln(n)) sets.
-- <b>Algorithm</b>
+- <b>Strategy</b>
     - Use greedy to grab the largest sets first without going over the contraint
     - School example (grab school that covers the largest without going over and second largest w/o going over and so on)
 - Let nt be the number of elements still not covered after t iterations, k sets are needed for optimal therefore nt/k extra will me needed.
 - nt+1 <= nt - nt/k = nt(1 - 1/k)
 - The approximation value of this greedy vs optimal is ln(n)
 
+##Elements of Dynamic Programming
+
+###Longest Increasing Subsequences
+- Input : sequence of numbers a1...an
+- Subsequence is a set of numbers and an increasing subsequence is one that increases from left to right
+- For example 5,2,8,6,3,6,9,7 longest subsequence is 2,3,6,9 when put in graph form this is called a dag
+- Once turned into a graph we want to find the largest subsequence by setting L(j) = 1 + max{L(i) : i,j within e} for each subproblem
+- <b>Running Time</b>
+    - Building the graph <i>O(n)</i>
+    - Running n subproblems to find the result O(n^2)
