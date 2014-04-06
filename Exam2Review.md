@@ -41,4 +41,4 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
 - An example is suppose you have a set of schools Si and you want to see how many schools from the set will cover the country, essencially outputting a set of Sx Schools
 - More generally we can see that B contains n elements and that the optimal cover consists of k sets, then the greedy will use (kln(n)) sets.
 - Let nt be the number of elements still not covered after t iterations, k sets are needed for optimal therefore nt/k extra will me needed.
-- n
+- n~t~he
