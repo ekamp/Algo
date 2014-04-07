@@ -81,9 +81,28 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
 <b>Pseodocode</b>
 
 ~~~c
-for(int i = 0 ; i < 1; i++)
+if(A.columns != B.rows)
 {
+  printf("ERROR : Incompatable");
 }
+else
+{
+  c = new Matrix(A.columns,B.rows);
+}
+for(i=1 to A.rows)
+{
+
+  for(j=1 to B.columns)
+  {
+   cij = 0;
+   for(k=1 to A.columns)
+   {
+    cij = cij + aik * bjk
+   }
+   
+  }
+}
+return c
 ~~~
 
 <b>Runtime O(n<sup>3</sup>)</b>
