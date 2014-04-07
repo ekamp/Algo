@@ -101,7 +101,7 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
   }
   return c and b
 ~~~
-
+<i>Running time for this is O(mn) since each entry takes O(1)</i>
 ###Matrix Chain Multiplication
 <i>Given a sequence or chain of A1...An of n matricies to be multiplied we wish to compute the product A1,A2...An</i>
 - This multiplication is associative so all parenthesizations yield the same product
