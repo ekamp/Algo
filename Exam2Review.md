@@ -71,4 +71,22 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
 - We can multiply two matricies A and B only if they are compatible meaning that one matricy must have the same number of columns as the other matricy has rows.
 - Due to this some groupings of chains are more efficient being that multiplying 100 rows 5 times is faster than multiplying 10 rows 5 times.
 - <b>Matrix-chain multiplication problem</b> : given a chain of matricies {A1,A2,A3...An} fully parenthesize the product in a way that minimizes the number of scalar multiplications.
+<b>Strategy</b>
+- Take the sequence of matricies and seperate out into two subsequences
+- Find the minimum cost of multiplying out the subsequences
+- Add the costs together and the cost of multiplying the resultant frequencies
+- Do this where each sequence can be split and take the minimum
+- To make sure that it is O(n<sup>3</sup>) we have to use memorization to remember common pairs so we do not redundantly compute values
+
+<b>Pseodocode</b>
+
+~~~c
+for(int i = 0 ; i < 1; i++)
+{
+}
+~~~
+
+<b>Runtime O(n<sup>3</sup>)</b>
+
+####Multiplication Given Dimensions
 - 
