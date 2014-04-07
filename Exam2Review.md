@@ -65,9 +65,41 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
 - Given two sequences X and Y we say that Z is a subsequence of X and Y if Z is contained within both X and Y
 - In the longest common subsequence given X and Y we wish to find the max length subsequence present in both x and y
 - The runtime to find the longest common subsequence is O(X.length * Y.length)
-<b>Psedocode</b>
+<b>Psedocode Find the Length of the LCS</b>
 ~~~c
-//Some code here
+  int m = X.length;
+  int n = Y.length;
+  let b[] and c[] be the new tables
+
+  for(i = 1 to m)
+  {
+    c[i,0] = 0
+  }
+  for(j = 0 to n)
+  {
+    c[0,j] = 0
+  }
+  for(i = 1  to m)
+  {
+    for(j = 1 to n)
+    {
+      if(x<sub>i</sub> == y<sub>j</sub>
+      {
+        c[i,j] = c[i-1,j-1] + 1
+        b[i,j] = c[i-1,j-1] + 1
+      }
+      else if(c[i-1,j] >= c[i,j-1]
+      {
+        c[i,j] = c[i-1,j]
+        b[i,j] = c[i-1,j]
+      }
+      else
+      {
+        b[i,j] = c[i,j-1]
+      }
+    }
+  }
+  return c and b
 ~~~
 
 ###Matrix Chain Multiplication
