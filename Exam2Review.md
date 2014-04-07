@@ -57,3 +57,17 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
 - <b>Running Time</b>
     - Building the graph <i>O(n)</i>
     - Running n subproblems to find the result O(n^2)
+
+###Matrix Chain Multiplication
+<i>Given a sequence or chain of A1...An of n matricies to be multiplied we wish to compute the product A1,A2...An</i>
+- This multiplication is associative so all parenthesizations yield the same product
+- <b>Fully Parenthesized</b> : if it is a single matrix or the product of two martricies surrounded by parens
+- For example {A1,A2,A3,A4} can be fully parenthesized in the following way
+    - (A1(A2(A3A4)))
+    - (A1((A2A3)A4))
+    - ((A1A2)(A3A4))
+    - ((A1(A2A3))A4)
+    - (((A1A2)A3)A4)
+- We can multiply two matricies A and B only if they are compatible meaning that one matricy must have the same number of columns as the other matricy has rows.
+- Due to this some groupings of chains are more efficient being that multiplying 100 rows 5 times is faster than multiplying 10 rows 5 times.
+- <b>Matrix-chain multiplication problem</b> : given a chain of matricies {A1,A2,A3...An} fully parenthesize the product in a way that minimizes the number of scalar multiplications.
