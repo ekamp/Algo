@@ -81,31 +81,26 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
 <b>Pseodocode</b>
 
 ~~~c
-if(A.columns != B.rows)
+for(i = 1 to n)
 {
-  printf("ERROR : Incompatable");
+  C(i,i) = 0
 }
-else
+for(s = 1 to n-1)
 {
-  c = new Matrix(A.columns,B.rows);
-}
-for(i=1 to A.rows)
-{
-
-  for(j=1 to B.columns)
+  for(i = 1 to n-s)
   {
-   cij = 0;
-   for(k=1 to A.columns)
-   {
-    cij = cij + aik * bjk
-   }
-   
+    j = i+s
+    C(i,j) = min{C(i,k) + C(k+1,j) + m<sub>i-1</sub> * m<sub>k</sub> * m<sub>j</sub> : i <= k < j}
   }
+  return C(1,n)
 }
-return c
+
 ~~~
 
 <b>Runtime O(n<sup>3</sup>)</b>
 
 ####Multiplication Given Dimensions
-- 
+- Given the dimensions of matricies compute the number of operations necessary to multiply all of them together
+- For example consider the matricies A<sub>1</sub>[10,100] , A<sub>2</sub>[100,5] , A<sub>3</sub>[5,50]
+- In order to compute the number of operations needed to get the product of all the matricies we need to compute the different sets of multiplication as follows.
+    - (A<sub>1</sub>(A<sub>2</sub>A<sub>3</sub>)) we compute 10 x
