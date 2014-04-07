@@ -103,4 +103,7 @@ for(s = 1 to n-1)
 - Given the dimensions of matricies compute the number of operations necessary to multiply all of them together
 - For example consider the matricies A<sub>1</sub>[10,100] , A<sub>2</sub>[100,5] , A<sub>3</sub>[5,50]
 - In order to compute the number of operations needed to get the product of all the matricies we need to compute the different sets of multiplication as follows.
-    - (A<sub>1</sub>(A<sub>2</sub>A<sub>3</sub>)) we compute 10 x
+    - ((A<sub>1</sub>A<sub>2</sub>)A<sub>3</sub>) we compute 10 * 100 * 5 = 5,000 multiplications (A1 A2) the 10 * 5 * 50 2,500 for (A12 A3) = 7,500
+        - Basically A1 * A2 will result in [A1.x,A2.y] then we do A1.x * A2.y * A3.y -> Prod 2 -> Answer = Prod1 + Prod2 
+    - (A<sub>1</sub>(A<sub>2</sub>A<sub>3</sub>)) we compute 100 * 5 * 50 = 25,000 multiplications(A2,A3) and 100 * 50 * 100 = 50,000 -> 50,000 + 25,000 = 75,000 multiplications
+    - Therefore from this result we see that we should choose the first grouping which takes 7,500 multiplications
