@@ -64,6 +64,16 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
 - Need to see if one sequence is a subsequence of another
 - Given two sequences X and Y we say that Z is a subsequence of X and Y if Z is contained within both X and Y
 - In the longest common subsequence given X and Y we wish to find the max length subsequence present in both x and y
+<b>Procedure</b>
+- <b>Brute Force</b>
+- Enumerate all subsequences of X and check if it is a subsequence of Y
+- Since we have m subsequences this approach will take 2<sup>m</sup> time
+- <b>Recursion</b>
+- Assuming that c[i,j] is the length of the LCS
+  c[i,j] = 
+      - 0 if i = 0 or j = 0
+      - c[i-1,j-1] if i,j > 0 and x<sub>i</sub> = y<sub>j</sub>
+      - max(c[i,j-1],c[i-1,j]) if i,j > 0 and x<sub>i</sub> != y<sub>j</sub>
 - The runtime to find the longest common subsequence is O(X.length * Y.length)
 <b>Psedocode Find the Length of the LCS</b>
 ~~~c
@@ -102,6 +112,11 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
   return c and b
 ~~~
 <i>Running time for this is O(mn) since each entry takes O(1)</i>
+<b>Pseodocode for finding the previous pointer for each digit</b>
+~~~c
+
+~~~
+
 ###Matrix Chain Multiplication
 <i>Given a sequence or chain of A1...An of n matricies to be multiplied we wish to compute the product A1,A2...An</i>
 - This multiplication is associative so all parenthesizations yield the same product
