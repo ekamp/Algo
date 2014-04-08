@@ -351,5 +351,38 @@ forward edges, back edges and cross edges (directed cases).
     - <b>Back Edge</b> : lead to an ancestor, go up one or more
     - <b>Cross Edge</b> : Lead to a node that is in the same node level and that has already been completely explored
 
-###Show that a directed graph has a cycle if and only if its depth-ﬁrst search reveals a back
-edge.
+###Show that a directed graph has a cycle if and only if its depth-ﬁrst search reveals a back edge.
+- <b>Cycle</b> : In a graph is when a directed graph has a circular path
+- One direction cycle is very easy to see if (u,v) is a back edge then there is a cycle consisting of this edge with the path from v to u in the search tree.
+- Also by looking in the search tree if there is a particular node from v<sub>i-1</sub> to v<sub>i</sub> then a cycle exists due to this back edge.
+
+###What is a directed acyclic graph (DAG)? What is the topological ordering of nodes in a DAG
+and why it is useful?
+- <b>Acyclic</b> : Graph without cycles
+- We can test for Acyclic graphs in linear time
+- <b>Directed Acyclic Graph (DAG)</b> : a graph that can be used to model causalities, hierarchies and temporal dependencies.
+- <b>Topological Ordering of Nodes</b>
+    - Each edge goes from an earlier vertex to a later vertex so that all procedence constraints are satisfied
+    - All DAGs can be linearized, every edge leads to a vertex with a lower post number
+    - This gives an O(n) time algo to order the edges in a DAG
+
+###How is it possible to identify a sink node or a source node in a DAG using depth-ﬁrst search?
+- Since all DAGs are linearized by their decreasing post numbers the vertex with the smallest post number must be a <i>sink</i> or in other words a node with no outgoing edges.
+- Alternatively the vertex with the highest post number is a <i>source</i>, or a node with no incoming edges.
+
+###What is the deﬁnition of strongly connected components? How is it possible to compute the decomposition of a directed graph into its strongly connected components? Provide an algorithm and argue about its running time.
+- <b>Strongly Connected Components</b> : When two or more nodes are connected in both directions, have an innode coming in from every node within the component and an outnode going out to every node within the component.
+- Can use depth first search which will decompose into strongly connected components in O(n) time
+- <b>Facts</b>
+    - If the explore subroutine is started at verticy u then it will terminate when all nodes reachable from u have been visited
+    - The node that receives the highest post number in a DFS must lie in a source strongly connected component.
+    - If C and C' are strongly connected components and there is an edge from a node in C to a node in C', then the highest post number in C is bigger than the highest post number in C'.
+- <b>Procedure</b>
+    - Find the sink by using the second and third fact and remove it from the graph
+    - Run DFS on G<sup>r</sup>
+    - Run the undirected connected components algo on G and during DFS process the verticies in decreasing order of their post number from step 1
+
+##Breadth First Search
+
+
+###Provide the algorithm that performs breadth-ﬁrst search on a graph. What is the inductive argument for the correctness of the approach? What is the running time of the algorithm?
