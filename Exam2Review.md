@@ -484,4 +484,95 @@ and why it is useful?
 ##Bellman-Ford and Floyd Warshall Algorithms
 ###Provide the Bellman-Ford algorithm for computing single-source shortest paths. What is the
 running time of the approach and why? Why is it correct?
+- This algorithm takes into consideration the shortest path given negative edge weights
 
+~~~c
+  //Graph G edge lengths l and start vertex s
+  void shortestPath(G,l,s)
+  {
+    for(all verticies u)
+    {
+      dist(u) = infinity;
+      prev(u) = nil;
+    }
+    dist(s) = 0 ;
+    repeat |V| - 1 times
+    {
+      for(all edges)
+      {
+        update(e);
+      }
+    }
+  }
+~~~
+- Running time : O(V*E)
+- This is correct because it will update for each edge and not continue to loop if a negative cycle comes into play
+
+###You may be provided a graph and asked to trace the dynamic programming matrix that arises from the operation of Bellman-Ford.
+- Page 124 example in the book
+- <b>Procedure</b>
+    - Add root
+    - Add neighbors and add their weight to the table
+    - Rest is the same as Dijkstra's ???
+###How can you detect the existence of negative cycles using the Bellman-Ford algorithm?
+- If when creating the search table you end your search and see that the shortest path to a node is actually negative
+
+###What is an efﬁcient approach for computing single-source shortest paths on directed acyclic graphs that may contain negative weight edges and what is the running time of this solution?
+~~~c
+  void dag-shortestPath(G,l,s)
+  {
+    for(all verticies)
+    {
+      dist(u) = infinity;
+      prev(u) = nil;
+    }
+    dist(s) = 0 ;
+    Linearize G
+    for(each verticy in linearized order)
+    {
+      for(all edges(u,v))
+      {
+        update(u,v);
+      }
+    }
+  }
+~~~
+- Runtime O(V + E)
+
+###Why is the Floyd-Warshall algorithm preferred over calling V times the Bellman-Ford algorithm on a graph to solve all-pair shortest path problems?
+- If we called V times the Bellman Ford algo on a graph to solve this we have the runtime of O(v<sup>2</sup>*e) instead of the quicker O(v<sup>3</sup>) Floyd-Warshall.
+
+### What is the dynamic programming formulation of Floyd-Warshall, i.e., what are the subproblems deﬁned by the algorithm and how are they combined in order to address more complex problems?
+- Look for a direct connection between node v and u
+- If one does not exist expand your intermediate set to include more nodes until a connection is found
+- Each time we expand we must again rexamine all the pairs to look for an already discovered intermediate shortest path
+- This is easy because shortest from i to j using k and possibly others only uses k once assuming no cycles
+- Additionally we already know the distance from i to k and k to j from previously
+
+##Floyd-Warshall and Johnson's Algorithm
+###Provide the Floyd-Warshall algorithm for solving all-pair shortest path problems. What is the running time of the approach?
+
+~~~c
+  for(i = 1 to n)
+  {
+      for(j = 1 to n)
+      {
+        dist(i,j,0) = infinity;
+      }
+  }
+  for(all (i,j) edges)
+  {
+    dist(i,j,0) = l(i,j);
+  }
+  for(k = 1 to n)
+  {
+      for(i = 1 to n)
+      {
+        for(j = 1 to n)
+        {
+          dist(i,j,k) = min{dist(i,k,k-1) + dist(k,j,k-1) , dist(i,j,k-1)}
+        }
+      }
+  }
+~~~
+- Runtime is O(V<sup>3</sup>
