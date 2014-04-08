@@ -80,7 +80,7 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
 - Find c[i,j] for x<sub>i</sub> and y<sub>j-1</sub>
 - Determine the difference
 </br>
-- The runtime to find the longest common subsequence is O(X.length * Y.length)
+- The runtime to find the longest common subsequence is O(X.length * Y.length)</br>
 <b>Psedocode Find the Length of the LCS</b>
 ~~~c
   int m = X.length;
@@ -138,7 +138,7 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
 - Add the costs together and the cost of multiplying the resultant frequencies
 - Do this where each sequence can be split and take the minimum
 - To make sure that it is O(n<sup>3</sup>) we have to use memorization to remember common pairs so we do not redundantly compute values
-
+</br>
 <b>Pseodocode</b>
 
 ~~~c
