@@ -243,3 +243,7 @@ return K(W)
 ~~~
 </br>
 <b>Example Problem</b>
+//none T_T
+
+####Determining the number of subproblems
+- If the input to a problem is x<sub>1</sub>...x<sub>n</sub> and the subproblems identified by a dynamic programming solution have the form x<sub>1</sub>...x<sub>i</sub>, i<= n how many subproblems exist? Similarly for inputs x<sub>1</sub>...x<sub>n</sub> and y<sub>1</sub>...y<sub>n</sub> where subproblems are x<sub>1</sub>,x<sub>i</sub>(1<=n) and y<sub>1</sub>...y<sub>j</sub>(j<=m). Similarly for input x<sub>1</sub>...x<sub>n</sub> and subproblems x<sub>i</sub>...x<sub>j</sub>  
