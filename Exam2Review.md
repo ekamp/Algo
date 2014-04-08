@@ -272,3 +272,64 @@ return K(W)
 - Takes longer to iterate through to see if an edge is contained O(e) worst case
 
 ##Depth First Search
+- Linear time procedure that finds what parts of the graph are reachable from a certain vertex
+
+###Provide an algorithm that discovers in linear time the set of nodes in a graph reachable from a speciﬁc node. Argue about its correctness.
+~~~c
+  void explore(G(V,E) (graph with verticies V and edges E))
+  {
+    visited(u) = true;
+    previsit(u)
+    for(each edge in u : v)
+    {
+      if(!visited(v))
+      {
+        explore(v);
+      }
+    }
+    postvisit(v);
+    return : visited(u) is true for all nodes u reachable from v
+  }
+~~~
+###Provide an algorithmic description for depth-ﬁrst search. What is its running time?
+- Some small amount of work to mark a spot as visited and the pre and post visit
+- A loop in which the adjacent edges are scanned to see if they lead somewhere new.
+~~~c
+  //First start off by marking everything as not visited
+  for(all v element in V)
+  {
+    visited(v) = false;
+  }
+  //Then every verticy one away explore
+  for(all v element in V)
+  {
+    if(!visited(v))
+    {
+      explore(v);
+    }
+  }
+~~~
+<b>Runtime</b></br>
+- The first step of this will take O(v) time to go through all the vertices of the graph and mark them as visited
+- The second step will take O(e) time because it visits the edges in explore x and explore y
+- Therefore the total runtime of the algorithm is O(v + e)
+
+###What is the pre-visit and post-visit order of nodes in depth-ﬁrst search?
+- Previsit : The first time you see the vertex
+~~~c
+  void previsit(vertex v)
+  {
+    //Clock is our simple counter for the visitiing
+    pre[v] = clock;
+    clock++;
+  }
+~~~
+- Postvisit : Once all edges have been explored and neighboring nodes visited
+~~~c
+  void postvisit(vertex v)
+  {
+    //Clock is our simple counter for the visitiing
+    post[v] = clock;
+    clock++;
+  }
+~~~
