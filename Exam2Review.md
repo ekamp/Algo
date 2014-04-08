@@ -119,6 +119,31 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
 ~~~
 <i>Running time for this is O(mn) since each entry takes O(1)</i>
 
+
+###Finding the LCS of two strings or of two subsequences
+- Finding the LCS of two strings hinders on two properties
+    - First property (If the two strings end in the same character)
+        - For example BANANA and ATANA
+        - Remove and store the same last element until no common element between the strings is found, we find (ANA)
+        - Now we look at the remaining seqences (BAN , AT)
+        - Using inspection we see that the common sequences here is just A
+        - Now append the removed elements to the element(s) found by inspection and we get out answer (AANA)
+        - More formally we say that : 
+            - x<sub>n</sub> = y<sub>m</sub> = LCS(x<sub>n</sub> , y<sub>m</sub>) = LCS(x<sub>n-1</sub> , y<sub>m-1</sub>)x<sub>n</sub>
+    - Second Property (If the two strings do not end in the same character
+        - We need to then find the LCS(x<sub>n-1</sub>,y<sub>m</sub>) and LCS(x<sub>n</sub>,y<sub>m-1</sub>)
+        - For example we have X : ABCDEFG and Y : BCDGK, the LCD(X,Y) either ends in G or does not
+            - Case ends in G
+                - Therefore it cannot end in K so we remove k from the sequence Y getting BCDG, and now we can say that LCS(x<sub>n</sub>,y<sub>m</sub>) = LCS(x<sub>n</sub>,y<sub>m-1</sub>)
+            - Case does not end in G
+                - Then we remove G from X and get ABCDEF and therefore say that LCS(x<sub>n</sub>,y<sub>m</sub>) = LCS(x<sub>n-1</sub>,y<sub>m</sub>)
+            - Therefore based on either case we are either looking for LCS(x<sub>n</sub>,y<sub>m-1</sub>) or LCS(x<sub>n-1</sub>,y<sub>m</sub>) which are both subsequences of X and Y therefore the longer one will become out LCS
+</br>
+<b>Strategy</b>
+- Given two sequences X and Y
+- If X and Y are equal return x<sub>n</sub>,y<sub>m-1</sub> or x<sub>n-1</sub>,y<sub>m</sub>
+- Otherwise compare LCS(x<sub>n</sub>,y<sub>m-1</sub>) and LCS(x<sub>n</sub>,y<sub>m-1</sub>) continuing to compare until similarities are found and return the largest similarity
+
 ###Matrix Chain Multiplication
 <i>Given a sequence or chain of A1...An of n matricies to be multiplied we wish to compute the product A1,A2...An</i>
 - This multiplication is associative so all parenthesizations yield the same product
@@ -158,17 +183,6 @@ for(s = 1 to n-1)
 
 ~~~
 
-###Finding the LCS of two strings or of two subsequences
-- Finding the LCS of two strings hinders on two properties
-    - First property (If the two strings end in the same character)
-        - For example BANANA and ATANA
-        - Remove and store the same last element until no common element between the strings is found, we find (ANA)
-        - Now we look at the remaining seqences (BAN , AT)
-        - Using inspection we see that the common sequences here is just A
-        - Now append the removed elements to the element(s) found by inspection and we get out answer (AANA)
-        - More formally we say that : 
-            - x<sub>n</sub> = y<sub>m</sub> = LCS(x<sub>n</sub> , y<sub>m</sub>) = LCS(x<sub>n-1</sub> , y<sub>m-1</sub>)x<sub>n</sub>
-    - Second Property (If the two strings do not end in the same character
         
 
 
