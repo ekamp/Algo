@@ -386,3 +386,48 @@ and why it is useful?
 
 
 ###Provide the algorithm that performs breadth-ﬁrst search on a graph. What is the inductive argument for the correctness of the approach? What is the running time of the algorithm?
+~~~c
+//dist(u) sets the distance of verticy u
+  void BFS(Graph G, Vertex Start(s))
+  {
+    for(all u verticies in the graph)
+    {
+      dist(u) = infinity;
+    }
+    dist(s) = 0 ;
+    Q = [s] (queue containing just s)
+    while(Q is not empty)
+    { 
+      u = eject(Q);
+      //This for goes over the current layer u and adds in the appropriate distance into the queue
+      for(all edges(u,v) in the graph)
+      {
+        if(dist(v) == infinity)
+        {
+          inject(Q,v);
+          dist(v) = dist(u) + 1;
+        }
+      }
+    }
+  }
+~~~
+- This algorithm will run in O(V+E) time
+
+###What is the deﬁnition of a single-source shortest path problem? What is the deﬁnition of a single-destination shortest path problem? What is the deﬁnition of a single-pair shortest path problem? What is the deﬁnition of all-pairs shortest path problem? Which of these problems are equivalent? Do we know faster algorithms for the single-pair shortest path problem than the single-source shortest path problem?
+- <b>Single Source Shortest Path Problem </b> : Finding the shortest path from a single starting vertex v to all other verticies within the graph
+- <b>Single Destination Shortest Path Problem</b> : Finding the shortest path from all verticies in a graph to a single destination vertex v
+- <b>Single-pair Shortest Path Problem</b> : Finding the path with the fewest edges.
+- <b>All paits Shortest Path Problem</b> : Finding the shortest path between every pair of verticies v and v' in the graph.
+
+###What is the “optimal substructure” property of shortest paths? Prove its validity
+- If a node x lies on the shortest path from source node u to destination node v
+- Then the shortest path from u to v is the shortest path from u to x and from x to v
+
+###What happens with shortest paths on graphs that contain negative cycles? Can a shortest path contain positive cycles?
+- Shortest path problems should not contain cycles because with the cycle with negative weight finding the path would be infinite, in other words there would be no min path
+- Additionally the solution should not have any possitive cycles because those cycles can simply be removed giving the path a lower cost
+
+##Dijkstra's Algorithm
+###What happens with shortest paths on graphs that contain negative cycles? Can a shortest path contain positive cycles?
+
+
