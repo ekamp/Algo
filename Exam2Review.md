@@ -333,3 +333,8 @@ return K(W)
     clock++;
   }
 ~~~
+
+###How can depth-ﬁrst search be used in order to detect the connected components of a graph?
+- <b>Connected graph</b> if theres a path from any verticy to another
+- Trivially the DFS structure will detect this by using the counter on previsit and utilizing the adjacency matrix or list
+- Therefore all we need to do is check that the ccnum[v] corresponds to the total number of verticies in teh graph. Each index in ccnumn is increased when a previsit occurs.
