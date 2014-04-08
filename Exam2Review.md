@@ -183,9 +183,6 @@ for(s = 1 to n-1)
 
 ~~~
 
-        
-
-
 <b>Runtime O(n<sup>3</sup>)</b>
 
 ####Multiplication Given Dimensions
@@ -197,4 +194,50 @@ for(s = 1 to n-1)
     - (A<sub>1</sub>(A<sub>2</sub>A<sub>3</sub>)) we compute 100 * 5 * 50 = 25,000 multiplications(A2,A3) and 100 * 50 * 100 = 50,000 -> 50,000 + 25,000 = 75,000 multiplications
     - Therefore from this result we see that we should choose the first grouping which takes 7,500 multiplications
 
+###Knapsack Problem
+- During a robbery  burglar finds much more loot than he intended on carrying and has to decide what to take
+- His bag can hold w pounds, and there are n items of value v<sub>i</sub> and weight w<sub>i</sub>
+- This can be solved in <b>O(nw)</b> time
+</br>
+<b>With Repetition</b>
+- If we say that K(w) will give us the optimal solution we can assume the following
+    - If item i is in the optimal solution set then we can remove i and say that the remainder items are K(w-w<sub>i</sub>) + v<sub>i</sub>
+    - Since we do not know which i will result in the max solution we remove different items until a max is found
+    - We continue this until all the weights have been explored and optimized
+~~~c
+  K(0) = 0 ;
+  for(w = 1 to W)
+  {
+    K(w) = max{K(w-wi - vi) : wi <= w}
+  }
+return K(W)
+~~~
 
+<b>Without Repetition</b>
+- Unlike before with repeptition we now have to consider if the item has been used before so we make sure 0 <= j <= n where j is the number of items.
+- And now we say that K(w,j)  = max value using capacity w and number of items j
+- Now its like before we need to see if the item needs to be in the optimal set so we say the following : 
+    - K(w,j) = max { K(w - w<sub>j</sub> , j-1) + v<sub>j</sub> , K(w,j-1)}
+- Now the algo involves filling out a 2d table and looks liike the following 
+- Running time for this algo remains the same at O(nw)
+
+~~~c
+  //Initialize all K(0,j) = 0 and all k(w,0) = 0
+  for(j = 1 to n)
+  {
+    for(w = 1 to n)
+    {
+      if(wj > w)
+      {
+        k(w,j) = k(w,j-1)
+      }
+      else
+      {
+        K(w,j) = max{ K(w,j-1), K(w-wj,j-1) + vj}
+      }
+    }
+  }
+  return K(W,n)
+~~~
+</br>
+<b>Example Problem</b>
