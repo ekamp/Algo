@@ -474,7 +474,7 @@ and why it is useful?
 - The best running time for the algorithm is O(E + Vlog(V)) where E are the edges in the graph and V are the verticies in the graph. This running time is acheived using the fibonacci heap. However this is very complicated to implement and many times d-ary is more preferable with a O(v * d + E * lodv / logd)
 
 ###What is the running time of Dijkstra’s algorithm if the priority queue is implemented as a simple array? What is the running time of Dijkstra’s algorithm if the priority queue is implemented as a binary heap? When is each of these implementations preferred over the other?
-- <b>Simple Array</b> : O(v<sup>2</sup>
+- <b>Simple Array</b> : O(v<sup>2</sup>)
 - <b>Binary Heap</b> : O((v + e)log(v))
 - Depending on whether the graph is sparse or dense, in all graphs e < v<sup>2</sup>
 - Single Array is preferable if e is close to v<sup>2</sup>
@@ -576,3 +576,32 @@ running time of the approach and why? Why is it correct?
   }
 ~~~
 - Runtime is O(V<sup>3</sup>)
+
+###You may be provided a graph and asked to compute the dynamic programming matrix that arises from a few iterations of the Floyd-Warshall algorithm.
+- First when creating the matrix number the top with 1->n and the left with 1->n
+- Then label this as D0
+- In D0 simply get the immediate distance or one node away distance from all verticies in the graph infinity if not reachable
+- Then in D1 highlight the leftmost and topmost column
+- You will be changing colmax-1 column
+- Within those columns follow the following rules
+    - If the previous number in the col was infinity then take the sum of the two numbers highlighted as the new value
+    - If the previous number in the col was not infinity and your corresponding highlighted values are not inifinity then keep the previous number
+    - if previous number was not infinity and one of the highlighted values are infinity replace the previous number with infinity
+- On the second iteration move to the second leftmost and second topmost and repeat. Once you have reached the middle of the matrix apply the rules to all non-highlighted cols. Continue until you reach the bottom
+
+###What is the transitive closure of a graph and how can it be computed following a dynamic programming approach? What is the relation to the Floyd-Warshall algorithm?
+- <b>Transitive Closure of a graph</b> : The reachability of a graph, the extent to which you can reach a node from another node in the graph
+- Can use Warshalls to find this closure by seeing how many rounds of warshalls it takes to populate the entire matrix without infinity distances. This is termed the connectivity matrix. This connectivity matrix can be derived from Warshalls
+
+###If a graph has non-negative edges, is it preferable to run the Floyd-Warshall algorithm to solve an all-pair shortest path problem or is it preferable to call [V] times Dijkstra’s algorithm?
+- Shouldn't matter, assuming that we use a simple array for Dijkstra's we see that one call of Dijkstra's yeilds O(v<sup>2</sup>) and if we call this v times we would get O(v<sup>3/sup>) the same runtime as Warshalls
+
+###What is the main idea in Johnson’s algorithm and why can it be preferable over the Floyd algorithm when solving all pair shortest path problems
+- <b>Johnson's Algorithm</b> : Find the shortest path between all pairs of verticies in a sparse edge weighted directed graph, allowing some of the edge weights to be negative.
+- It is preferable over Warshalls because it removes all negative cycles and then uses Dijkstra's to label the graph. Reweights with no negative edges. This algo also runs in O(v<sup>2</sup>log(v) + v*e) which is faster than warshalls
+<b>Procedure</b> : 
+- A new node q is added to the graph connected by zero weight edges to each of the nodes in the graph
+- The Bellman ford algo is used starting from the new vertex q to find each vertex v for the min weight h(v) of a path from q to v.
+- The edges of the original graph are reweighted using the values computed by the bellman ford algo
+- Finally q is removed and Dijkstras is used to find the shortest path from each node s to every other vertex v in the graph 
+
