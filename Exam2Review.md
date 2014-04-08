@@ -480,4 +480,8 @@ and why it is useful?
 - Single Array is preferable if e is close to v<sup>2</sup>
 - Otherwise if e is  < v<sup>2</sup> / log(v) then binary heap is preferable
 
-- However 
+
+##Bellman-Ford and Floyd Warshall Algorithms
+###Provide the Bellman-Ford algorithm for computing single-source shortest paths. What is the
+running time of the approach and why? Why is it correct?
+
