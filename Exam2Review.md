@@ -338,3 +338,18 @@ return K(W)
 - <b>Connected graph</b> if theres a path from any verticy to another
 - Trivially the DFS structure will detect this by using the counter on previsit and utilizing the adjacency matrix or list
 - Therefore all we need to do is check that the ccnum[v] corresponds to the total number of verticies in teh graph. Each index in ccnumn is increased when a previsit occurs.
+
+###You may be provided an undirected or directed graph, a start node and asked to provide the
+search tree arising from a depth-ﬁrst search. You may also be asked to identify tree edges,
+forward edges, back edges and cross edges (directed cases).
+- <b>Creating the DFS Search tree</b>
+    - When creating a DFS tree the root node is going to be your start node.
+    - All of the verticies connected to the root node by an edge are considered the roots children or decendents and get placed below the root.
+    - Then the children of the root or verticies connected to the root, also have children which are the verticies connected to them by an edge.
+    - This continues until we run into verticies with no more edges and no more children
+    - <b>Forward Edge</b> : lead from a node to a non-child decendent or in other words a grandchild or more
+    - <b>Back Edge</b> : lead to an ancestor, go up one or more
+    - <b>Cross Edge</b> : Lead to a node that is in the same node level and that has already been completely explored
+
+###Show that a directed graph has a cycle if and only if its depth-ﬁrst search reveals a back
+edge.
