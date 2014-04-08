@@ -65,15 +65,15 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
 - Given two sequences X and Y we say that Z is a subsequence of X and Y if Z is contained within both X and Y
 - In the longest common subsequence given X and Y we wish to find the max length subsequence present in both x and y
 <b>Procedure</b>
-- <b>Brute Force</b>
-- Enumerate all subsequences of X and check if it is a subsequence of Y
-- Since we have m subsequences this approach will take 2<sup>m</sup> time
-- <b>Recursion</b>
-- Assuming that c[i,j] is the length of the LCS
-  c[i,j] = 
-      - 0 if i = 0 or j = 0
-      - c[i-1,j-1] if i,j > 0 and x<sub>i</sub> = y<sub>j</sub>
-      - max(c[i,j-1],c[i-1,j]) if i,j > 0 and x<sub>i</sub> != y<sub>j</sub>
+  - <b>Brute Force</b>
+  - Enumerate all subsequences of X and check if it is a subsequence of Y
+  - Since we have m subsequences this approach will take 2<sup>m</sup> time
+  - <b>Recursion</b>
+  - Assuming that c[i,j] is the length of the LCS
+    c[i,j] = 
+        - 0 if i = 0 or j = 0
+        - c[i-1,j-1] if i,j > 0 and x<sub>i</sub> = y<sub>j</sub>
+        - max(c[i,j-1],c[i-1,j]) if i,j > 0 and x<sub>i</sub> != y<sub>j</sub>
 - The runtime to find the longest common subsequence is O(X.length * Y.length)
 <b>Psedocode Find the Length of the LCS</b>
 ~~~c
