@@ -74,6 +74,7 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
           - 0 if i = 0 or j = 0
           - c[i-1,j-1] if i,j > 0 and x<sub>i</sub> = y<sub>j</sub>
           - max(c[i,j-1],c[i-1,j]) if i,j > 0 and x<sub>i</sub> != y<sub>j</sub>
+</br>
 <b>Finding the previous pointer for a digit</b>
 - Find c[i,j] for x<sub>i-1</sub> and y<sub>j</sub>
 - Find c[i,j] for x<sub>i</sub> and y<sub>j-1</sub>
