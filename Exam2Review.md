@@ -74,6 +74,11 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
           - 0 if i = 0 or j = 0
           - c[i-1,j-1] if i,j > 0 and x<sub>i</sub> = y<sub>j</sub>
           - max(c[i,j-1],c[i-1,j]) if i,j > 0 and x<sub>i</sub> != y<sub>j</sub>
+<b>Finding the previous pointer for a digit</b>
+- Find c[i,j] for x<sub>i-1</sub> and y<sub>j</sub>
+- Find c[i,j] for x<sub>i</sub> and y<sub>j-1</sub>
+- Determine the difference
+</br>
 - The runtime to find the longest common subsequence is O(X.length * Y.length)
 <b>Psedocode Find the Length of the LCS</b>
 ~~~c
@@ -112,10 +117,6 @@ Greedy algorithms build up to a solution peice by peice always choosing the solu
   return c and b
 ~~~
 <i>Running time for this is O(mn) since each entry takes O(1)</i>
-<b>Pseodocode for finding the previous pointer for each digit</b>
-~~~c
-
-~~~
 
 ###Matrix Chain Multiplication
 <i>Given a sequence or chain of A1...An of n matricies to be multiplied we wish to compute the product A1,A2...An</i>
