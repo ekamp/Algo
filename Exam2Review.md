@@ -158,6 +158,20 @@ for(s = 1 to n-1)
 
 ~~~
 
+###Finding the LCS of two strings or of two subsequences
+- Finding the LCS of two strings hinders on two properties
+    - First property (If the two strings end in the same character)
+        - For example BANANA and ATANA
+        - Remove and store the same last element until no common element between the strings is found, we find (ANA)
+        - Now we look at the remaining seqences (BAN , AT)
+        - Using inspection we see that the common sequences here is just A
+        - Now append the removed elements to the element(s) found by inspection and we get out answer (AANA)
+        - More formally we say that : 
+            - x<sub>n</sub> = y<sub>m</sub> = LCS(x<sub>n</sub> , y<sub>m</sub>) = LCS(x<sub>n-1</sub> , y<sub>m-1</sub>)x<sub>n</sub>
+    - Second Property (If the two strings do not end in the same character
+        
+
+
 <b>Runtime O(n<sup>3</sup>)</b>
 
 ####Multiplication Given Dimensions
@@ -168,3 +182,5 @@ for(s = 1 to n-1)
         - Basically A1 * A2 will result in [A1.x,A2.y] then we do A1.x * A2.y * A3.y -> Prod 2 -> Answer = Prod1 + Prod2 
     - (A<sub>1</sub>(A<sub>2</sub>A<sub>3</sub>)) we compute 100 * 5 * 50 = 25,000 multiplications(A2,A3) and 100 * 50 * 100 = 50,000 -> 50,000 + 25,000 = 75,000 multiplications
     - Therefore from this result we see that we should choose the first grouping which takes 7,500 multiplications
+
+
