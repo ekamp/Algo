@@ -247,4 +247,25 @@ return K(W)
 
 ####Determining the number of subproblems
 - If the input to a problem is x<sub>1</sub>...x<sub>n</sub> and the subproblems identified by a dynamic programming solution have the form x<sub>1</sub>...x<sub>i</sub>, i<= n how many subproblems exist? Similarly for inputs x<sub>1</sub>...x<sub>n</sub> and y<sub>1</sub>...y<sub>n</sub> where subproblems are x<sub>1</sub>,x<sub>i</sub>(1<=n) and y<sub>1</sub>...y<sub>j</sub>(j<=m). Similarly for input x<sub>1</sub>...x<sub>n</sub> and subproblems x<sub>i</sub>...x<sub>j</sub>
-- Based on previous problems there should be i * n  subproblems taking O(ixn) time to run 
+- Based on previous problems there should be i * n  subproblems taking O(ixn) time to run
+
+###Adjancency Matrix Representation for Graphs
+- Represented by an n x n array where the a<sub>ij</sub>th entry is a 1 if theres an edge from v<sub>i</sub> to v<sub>j</sub> and a 0 if there is no edge between v<sub>i</sub> and v<sub>j</sub>
+
+####Advantages
+- Presence of an edge can be found in constant time with only one memory access
+
+####Disadvantages
+- Takes O(n<sup>2</sub>) space to store the graph
+- Many graphs are sparse in practice meaning they have relatively few edges
+
+###Adjancency List Representation for Graphs
+- The size of this representation is the size of the edges. Contains a linked list per vertex. The linked list for the vertex holds all verticies it has an outgoing edge to. This way an edge only appears once if directed or twice if undirected.
+
+####Advantages
+- Size of the graph representation is now O(|e|) where e is the number of edges
+- Better for sparse graphs and in general takes less space
+
+####Disadvantages
+- Takes longer to iterate through to see if an edge is contained O(e) worst case
+
