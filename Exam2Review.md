@@ -428,6 +428,56 @@ and why it is useful?
 - Additionally the solution should not have any possitive cycles because those cycles can simply be removed giving the path a lower cost
 
 ##Dijkstra's Algorithm
-###What happens with shortest paths on graphs that contain negative cycles? Can a shortest path contain positive cycles?
+###Provide Dijkstra's algo for computing single-sourced shortest paths. What is the requirement in order to be able to apply Dijkstra’s algorithm?
 
+~~~c
+  void dijkstra(G,l,s)
+  {
+    for(all u vertices)
+    {
+      dist(u) = infinity;
+      prev(u) = nil;
+    }
+    dist(s) = 0;
+    H = makequeue(V) ; //using distance values as the keys
+    while(H is not empty)
+    {
+      u = deletemin(H);
+      for (all edges (u,v))
+      {
+        if(dist(v > dist(u) + l(u,v))
+        {
+          dist(v = dist(u) + l(u,v);
+          prev(v) = u;
+          decreasekey(H,v);
+        }
+      }
+    }
+  }
+  return u;
+~~~
+- Runtime : <b>O(E + vlog(v))
+- Dijkstra's requires that there be edge weights and that a priority queue is used
 
+###You may be provided an example graph and asked to return the search tree that arises from Dijkstra, as well as the state of the priority queue during its iteration of the algorithm.
+- <b>Creating the search Tree</b>
+    - Start off by adding the root or the start node into the table or tree
+    - Then look at its outgoing edges and their weight, add the corresponding weights to the table
+    - Then move on and look at the smallest current weight in the table not yet explored
+    - Do the same thing except now overwrite all distances currently in the table with ones from the current node if the current node provides a cheaper path, and add in new nodes not yet seen
+    - once all explored show the search tree which is just the graph with the shortest paths
+
+###Prove the correctness of Dijkstra’s algorithm on non-negative weight graphs.
+- Right?
+
+###What is the best running time of Dijkstra’s algorithm and for what implementation of the priority queue data structure?
+- The best running time for the algorithm is O(E + Vlog(V)) where E are the edges in the graph and V are the verticies in the graph. This running time is acheived using the fibonacci heap. However this is very complicated to implement and many times d-ary is more preferable with a O(v * d + E * lodv / logd)
+
+###What is the running time of Dijkstra’s algorithm if the priority queue is implemented as a simple array? What is the running time of Dijkstra’s algorithm if the priority queue is implemented as a binary heap? When is each of these implementations preferred over the other?
+- <b>Simple Array</b> : O(v<sup>2</sup>
+- <b>Binary Heap</b> : O((v + e)log(v))
+- Depending on whether the graph is sparse or dense, in all graphs e < v<sup>2</sup>
+- Single Array is preferable if e is close to v<sup>2</sup>
+- Otherwise if e is  < v<sup>2</sup> / log(v) then binary heap is preferable
+
+- However 
