@@ -575,4 +575,4 @@ running time of the approach and why? Why is it correct?
       }
   }
 ~~~
-- Runtime is O(V<sup>3</sup>
+- Runtime is O(V<sup>3</sup>)
