@@ -198,8 +198,10 @@ for(s = 1 to n-1)
 - During a robbery  burglar finds much more loot than he intended on carrying and has to decide what to take
 - His bag can hold w pounds, and there are n items of value v<sub>i</sub> and weight w<sub>i</sub>
 - This can be solved in <b>O(nw)</b> time
-</br>
+
+
 <b>With Repetition</b>
+
 - If we say that K(w) will give us the optimal solution we can assume the following
     - If item i is in the optimal solution set then we can remove i and say that the remainder items are K(w-w<sub>i</sub>) + v<sub>i</sub>
     - Since we do not know which i will result in the max solution we remove different items until a max is found
