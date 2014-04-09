@@ -709,4 +709,30 @@ else
 - This takes O(V + E) time to run
 
 ####Consider a directed graph with (possibly negative) weighted edges, in which the shortest path between any two vertices is guarenteed to have at most k edges. Write an algorithm in pseudoode that finds the shortest path between two verticies u and v in O(k|E|) time.
+~~~c
+//Graph G edge lengths l and start vertex s
+  void shortestPath(G,l,s)
+  {
+    for(all verticies u)
+    {
+      dist(u) = infinity;
+      prev(u) = nil;
+    }
+    dist(s) = 0 ;
+    repeat |V| - 1 times
+    {
+      for(all edges)
+      {
+        update(e);
+      }
+    }
+  }
+~~~
 
+- Which runs in O(k|E|)
+
+####Consider a graph G(V,E) that weighs w. Furthermore, define a value function h:v -> R for every vertex of the graph. Then define a new set of weights as follows w(u,v) + h(u) - h(v) for every edge (u,v) in E for prove the following facts
+- Path  p =< V0,V1 > is a shortest path on G according to weights w only if it also a shortest path according to weights w.
+-  Moreover negative cycles exist on the graph G according to weights w only if they exist for the weights w as well
+
+<i> Add zero weighted node to the graph and connected to all verticies, then use belman ford to find the negative weights and if there is clear and reweight the graph. Then find the shortest path using Dijkstra's</i>
