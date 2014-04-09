@@ -624,7 +624,8 @@ running time of the approach and why? Why is it correct?
 <i>True, if we simply look at the runtimes we can see that Dijkstra's with a binary heap runs faster with the runtime of O(V<sup>2</sup>log(v)) vs the runtime of Warshall's which takes O(V<sup>3</sup>)</i>
 
 ####You are transfering or robbing money from the bank and you already have filled n with cash. Each duffel bag i is unique. You are trying to fit the bags in the trunk of your car which has a volume of V, so as to maximize the amount of money that you can transfer in one trip. Provide a dynamic programming approach to this problem. (ID the subproblems and show how they are combined to solve larger problems
-<i>Subproblems : We can use the volume V to define our subproblems, with volume V = 0 what is the max amount of money I can take and with which bags. Some with v = 1, v = 2 ... v. Additionally we need another variable to keep track of the volume of the current bag as to maximize the number of bags, the variable will be part of out optimal solution. 
+<i>Subproblems : We can use the volume V to define our subproblems, with volume V = 0 what is the max amount of money I can take and with which bags. Some with v = 1, v = 2 ... v. Additionally we need another variable to keep track of the volume of the current bag as to maximize the number of bags, the variable will be part of out optimal solution. </i>
+~~~c
 K(v,i) is the max value for v volume duffel bag i
 if(V<sub>i</sub> > V)
 {
@@ -634,5 +635,6 @@ else
 {
   K(i,V) = max{ K(V,i-1) , K(V-V<sub>i</sub>,i-1) + m<sub>i</sub>}
 }
-At the end returning K(V,i)</br>
-This problem has the same guidelines as the Knapsack problem without repetion
+//At the end returning K(V,i)</br>
+//This problem has the same guidelines as the Knapsack problem without repetion
+~~~
