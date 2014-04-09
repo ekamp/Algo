@@ -210,7 +210,7 @@ for(s = 1 to n-1)
   K(0) = 0 ;
   for(w = 1 to W)
   {
-    K(w) = max{K(w-wi - vi) : wi <= w}
+    K(w) = max{K(w-wi) + vi : wi <= w}
   }
 return K(W)
 ~~~
