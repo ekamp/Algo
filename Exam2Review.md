@@ -638,3 +638,37 @@ else
 //At the end returning K(V,i)</br>
 //This problem has the same guidelines as the Knapsack problem without repetion
 ~~~
+
+####What is the runtime of the above dynamic programming solution and why
+<i>O(iV), Since we defined our subproblems to be v = volume of the car and i = the amount of bags we have</i>
+
+####A subsequence is pallindromatic if it is the same forwards as it is backwards. For instance the sequence, A,C,G,T,G,T,C,A,A,A,A,T,C,G has many pallindromatic sequences, including A,C,G,C, and A,A,A,A. Device an algorithm that takes the sequence x[1...n] and returns the length of the longest pallindromatic subsequence, its running time should be O(n<sup>2</sup>.
+
+<i>This is the same as the Longest Common subsequence problem, the only difference would be that the first for will be reading from the right and the other for will be reading from the left</i>
+
+~~~c
+  //Assuming that S is the normal sequence and T is the reversed sequence
+  for(i = 0 to n)
+  {
+    LPS(i,0) = 0; 
+  }
+  for(j = 0 to n)
+  {
+    LPS[0,j] = 0 ;
+    for(i = 1 to n)
+    {
+      for(j = 1 to n)
+      {
+        if(Si == Tj)
+        {
+          LPS[i,j] = LPS[i-1,j-1];
+        }
+        else
+        {
+          LPS[i,j] = max{LPS(i-1,j),LPS(i,j-1)};
+        }
+      }
+    }
+  }
+  return LPS[n,n]
+~~~
