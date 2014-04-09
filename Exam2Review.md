@@ -684,3 +684,4 @@ else
     - Since they are now organized according to the post order , I now have the sets of Strongly Connected Components thanks to algo in part two
 
 ####What is the running time of the efficent algorithm
+- The running time is O(n)
