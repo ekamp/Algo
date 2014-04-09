@@ -685,3 +685,28 @@ else
 
 ####What is the running time of the efficent algorithm
 - The running time is O(n)
+
+####Consider the graph shown below. Consider an efficent approach for computing single-source shortest paths on this graph. What is the running time of the efficent solution?
+~~~c
+ void dag-shortestPath(G,l,s)
+  {
+    for(all verticies)
+    {
+      dist(u) = infinity;
+      prev(u) = nil;
+    }
+    dist(s) = 0 ;
+    Linearize G
+    for(each verticy in linearized order)
+    {
+      for(all edges(u,v))
+      {
+        update(u,v);
+      }
+    }
+  }
+~~~
+- This takes O(V + E) time to run
+
+####Consider a directed graph with (possibly negative) weighted edges, in which the shortest path between any two vertices is guarenteed to have at most k edges. Write an algorithm in pseudoode that finds the shortest path between two verticies u and v in O(k|E|) time.
+
