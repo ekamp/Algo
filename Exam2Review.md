@@ -673,3 +673,14 @@ else
   return LPS[n,n]
 ~~~
 
+####What is the definition of the strongly connected component?
+<i>A strongly connected component is a set of 2 or more nodes that have a inode and an outnode to and from every node in the component</i>
+
+####Provide the efficent algorithm for computing the decomposition of a directed graph into its strongly connected
+- First need to find G<sup>R</sup>
+    - We need to do this in order to run DFS and organize the nodes in a post-order increasing order
+    - We have a property that says that the nodes with the highest post order is the source and the lowest post order are sinks, in other words they reverse G to get the sinks of the graph
+    - Run the connected component alog of undirected graphs to find the connected components.
+    - Since they are now organized according to the post order , I now have the sets of Strongly Connected Components thanks to algo in part two
+
+####What is the running time of the efficent algorithm
