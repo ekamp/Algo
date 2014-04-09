@@ -605,3 +605,14 @@ running time of the approach and why? Why is it correct?
 - The edges of the original graph are reweighted using the values computed by the bellman ford algo
 - Finally q is removed and Dijkstras is used to find the shortest path from each node s to every other vertex v in the graph 
 
+
+##Practice Questions
+<i>Specify whether the following questions are true or false and explain why</i>
+####An Adjacency matrix can quickly detect if an edge exists but the representation requires O(v<sup>3</sup>) space. A Ajancency list has space requirements of O(vlogv) but cannot detect whether an edge exists in constant time.
+<i>False, because the an adjancency  matrix takes up O(v<sup>2</sup>) space and an adjancency list has space requirements of O(|v| + |e|)</i>
+
+####Consider a general graph G(V,E). The best known algorithm for finding a path from a specific vertex s to a specific vertex t in G has better asymptotic running time than the best known algorithm for finding the paths for all verticies in V for a vertex t in G.
+<i>
+
+
+
