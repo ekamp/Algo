@@ -612,7 +612,27 @@ running time of the approach and why? Why is it correct?
 <i>False, because the an adjancency  matrix takes up O(v<sup>2</sup>) space and an adjancency list has space requirements of O(|v| + |e|)</i>
 
 ####Consider a general graph G(V,E). The best known algorithm for finding a path from a specific vertex s to a specific vertex t in G has better asymptotic running time than the best known algorithm for finding the paths for all verticies in V for a vertex t in G.
-<i>
+<i>False, They have the same runtime, Dijkstra's and an adjacency matrix both take O(v<sup>2</sup>) time</i>
 
+####The shortest path cannot contain a zero weight cycle
+<i>False, they can contain a zero weighted cycle because it won't effect the min cost of the path</i>
 
+####Dijkstra's running time depends on the implementation of the priority queue data structure. An array implementation results in a running time of O(v<sup>2</sup>) and is prefered in dense graphs. A binary heap implementation results in O(vlogv + e) and is prefered in sparse graphs
+<i>False the binary heap takes O((V + E)Log(v)), if we have a dense graph better to use an array and if we have a sparse graph better to use a binary heap</i>
 
+####On a sparse graph with non-negative edges it is preferable to run |V| times Dijkstra's algorithm using a binary heap in order to compute the shortest paths between all pairs of nodes rather than running Warshall's which has a running time of &THETA(v<sup>3</sup>)
+<i>True, if we simply look at the runtimes we can see that Dijkstra's with a binary heap runs faster with the runtime of O(V<sup>2</sup>log(v)) vs the runtime of Warshall's which takes O(V<sup>3</sup>)</i>
+
+####You are transfering or robbing money from the bank and you already have filled n with cash. Each duffel bag i is unique. You are trying to fit the bags in the trunk of your car which has a volume of V, so as to maximize the amount of money that you can transfer in one trip. Provide a dynamic programming approach to this problem. (ID the subproblems and show how they are combined to solve larger problems
+<i>Subproblems : We can use the volume V to define our subproblems, with volume V = 0 what is the max amount of money I can take and with which bags. Some with v = 1, v = 2 ... v. Additionally we need another variable to keep track of the volume of the current bag as to maximize the number of bags, the variable will be part of out optimal solution. 
+K(v,i) is the max value for v volume duffel bag i
+if(V<sub>i</sub> > V)
+{
+  K(i,V) = K(V,i-1)
+}
+else
+{
+  K(i,V) = max{ K(V,i-1) , K(V-V<sub>i</sub>,i-1) + m<sub>i</sub>}
+}
+At the end returning K(V,i)</br>
+This problem has the same guidelines as the Knapsack problem without repetion
