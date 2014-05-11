@@ -21,7 +21,7 @@ Exam 3 Review
 - The lightest edge is the edge of min weight that connects accross the cut of S and V-S
 
 ###Kruskal's and Prim's algorithm
-
+####Kruskal's algorithm
 - General Algorithm 
   - Continually add the lightest edge.
   - Before adding the lightest edge make sure it does not contain a cycle by making sure u - v canidates lie in a different component than end points u and v
@@ -74,4 +74,27 @@ Exam 3 Review
 - This is extremely similar to Dijkstras except that the ordering of the priority queue in Prims is ordered by the value of the lightest incoming edge and Dijkstra's is just ordered by the cost of the path and the current weighting.
 - They are so similar that their runtimes are the same, therefore : 
     - Simple array : O(v<sup>2</sup>)
-    - Binary Heap : O((|V|+|E|)log(|V|))
+    - Binary Heap : O(|E| + |V|log(|V|))
+
+###NP Complete Reduction
+- What is the Minimum cut problem, and what is its runtime?
+  - A cut of the graph that has the smallest weight or number of elements, in this case we are looking for the smallest weight.
+  - We can get the smallest or min cut by removing the last edge that Kruskal's adds to the span
+  - This finds the min cut with a prob of 1/n<sup>2</sup> so if we repeat n<sup>2</sup> we will find it
+  - Therefore we repeat n<sup>2</sup> times to get our result making the runtime O(n<sup>2</sup>mlog(n))
+  - Some further tuning brings this down to O(n<sup>2</sup>log(n))
+- What is the balanced cut problem ?
+  - Given a graph with n verticiesand budget b partition the vertices into two sets T and S in which |S|, |T| >= n/3 and there are at most b edges between S and T. 
+  - Such problems are used for clustering, such as  segmenting an image into certain components
+  - Best way to do this is to have a node for each pixel and segment similar color pixels that are close to each other.
+  - A balanced cut would be say seperating an elephant from the sky within a photo
+  - There is no polynomial time algorithm for finding the balanced cut of a graph
+- What is the knapsack problem?
+  - A robber has broken into a store and wants to fill a bag of size V with n items each worth v. Wants to maximize v and only has V space. 
+  - If the robber can take the same item can be solved in O(nW) time
+  - If the robber cannot take the same item repeatedly can be solved in O(nW) time
+  - Subset sum
+      - More generally this is given a set of integers is there a subset whose sum is a specific number s
+      - This is NP complete problem that is a specialized version of knapsack bcause it can be used to keep track of the number of items and their weights that add up to the max weight the robber can carry
+- What is the class of NP problems? 
+    - 
