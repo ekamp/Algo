@@ -143,3 +143,70 @@ Exam 3 Review
     - We add additional clauses and AND them together in order to produce the same result
     - This is important because all problems can reduce to Cirucuit SAT then we can further reduce them to SAT so they are easier to work with.
     - We can do this conversion in Polynomial time
+
+###Approximation Algorithms
+- Backtracking search in order to solve NP complete problems
+  - The idea that we can reject a solution by only looking at a small portion of it
+  - In otherwords if we know that a certain search space does not contain a solution we can prune it making our search space sig. smaller
+  - We start off with a portion of the problem creating a partial solution and then branching into more and more solutions
+  - As soon as we come to an assignment that violates our clause we prune it eliminating it from the search space and backtrack out to the parent partial solution
+  - The general algorithm is as follows : 
+
+~~~c
+  Start with some initial problem P
+  Let S = {P0}, the set of active subproblems
+  Repeat while S is non-empty
+    Choose a subproblem and remove it from S
+    Expand it into smaller subproblems
+    for each Pi :
+      if test Pi succeeds halt and announce your solution
+      if test Pi fails discard Pi
+      otherwise add Pi to S
+    Announce there is no solution
+~~~
+
+- Branch and Bound approach
+  - Again like with SAT problems search problems too can be broken down into subproblems
+  - In this case in order to reject a solution we need to see that its cost is greater than another solution
+  - We however do not know the exact cost of the solution so we tend to use a quick lower bound approximation on the solution
+
+~~~c
+  Start with some problem P0
+  Let S = {P0} the set of active subproblems
+  bestSoFar = <Infinity></Infinity>
+  Repeat while S is non empty
+    Choose a subproblem P and remove it from S
+    Expand it into smaller subproblems
+    for each Pi
+      if Pi is complete solution : update bestSoFar
+      else if lowerbound(Pi) < bestSoFar : add Pi to S
+    return bestSoFar
+~~~
+
+- Traveling Salesman with Branch and Bound approach
+  - First create your partial solution passing through some of the verticies
+  - Then branch from this adding a new edge to the partial solution noting that there can be V - S ways of doing this
+  - The remainder of the tour is what remains or V - S therefore its cost is the sum of the following : 
+       - Lightest edge from a to V - S
+       - Lightest edge from b to V - S
+       - Min spanning tree of V - S
+- How is the approximation ratio computed?
+  - Computed with the following : aA = max instance of algorithm A  / optimization of that instance
+  - In other words this ratio measures the factor by which the algorithm A exceeds the optimum solution
+  - So we are looking for this ratio to be as small as possible
+- Approximation Ratio for Vertex Cover Problem
+  - Better than greedy approach we can match a set of edges that have no common verticies and a set is said to be maximal if no edges can be added to it.
+  - Maximal matching will help us find vertex covers faster
+  - To generate this max matching we do the following : 
+    - Repeatedly pick edges that that are disjoint from ones chosen already until no longer posible
+    - Matching provides the lower bound on OPT
+    - General solution to find vertex cover this way is as follows : 
+
+~~~c
+  Find a maximal matching M in E
+  Return S = {all endpoints of edges in M}
+~~~
+
+- This will always produce a vertex cover at most twice that of the optimal solution or in otherwords has at most an approximation ratio of 2
+
+
