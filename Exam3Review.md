@@ -26,7 +26,7 @@ Exam 3 Review
   - Before adding the lightest edge make sure it does not contain a cycle by making sure u - v canidates lie in a different component than end points u and v
   - More specifically we have the following : 
   ~~~c
-    //makeset(x); //Create a singleton set just containing x
+    //makeset(x); //Create a singleton set just containing X
     //find(x); //to which set does x belong, check their components
     //union(x,y); //merge the set of x and y
     
@@ -44,3 +44,11 @@ Exam 3 Review
       }
     }
   ~~~
+- In Kruskal's a safe edge is one that does not contain a cycle, is the lightest and is contained in a different cut than the rest of the graph.
+- Running time of Kruskal's algorithm given we are using the disjoint set data structure. O(|E|log|v|)
+- With the use of compression and union by rank we can get the runtime down to a little more than O(1) or in this case O(log(n)) runtime. Because the edge weights are smaller and upper bounded by O(|E|) we know that we can sort them in linear time. If we improve our data structure now using the union by rank we can reduce the time from logn to simply 1. Therefore we are left with O(|E|) for sorting and O(|E|) for the data structure per iteration. Therefore we wind up with a better runtime of O(|E|)
+- makeset() (union by set)
+  - 
+- find()
+  - Now when a series of parent pointer is followed to the root, we will change them so they point directly to the root
+-
