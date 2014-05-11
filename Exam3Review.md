@@ -114,5 +114,32 @@ Exam 3 Review
     - Many times these problems are both NP and co-NP
 
 ###Examples of Reductions NP Complete
-- Show that the General sat problem SAT reduces to the 3-SAT problem
-  - 
+- 3-SAT to Independent Set
+  - Set of clauses each with 3 or less literals
+  - We aim to find a satisfing truth
+  - First we create a triangle for each clause because we have 3 literals per clause
+  - Then choose a goal g to be the number of clauses
+  - Then to prevent choosing opposite literals as the same boolean we put an edge between all opposite literals
+  - If g < the number of verticies we cannot determine the truth of the 3SAT
+  - Otherwise we assign a certain vertex x to be be true and therefore x! is false
+  - Therefore if a clause has x it is said to be true or if it contains x! it is false
+- SAT to 3-SAT
+  - Modify the statement in order to remove clauses that have >= 4 literals per clause
+  - Converting these requires polynomial time and a new variable to replace the few that we junked I to I'
+  - {a<sub>1</sub> V a<sub>2</sub> V ... a<sub>k</sub>} => { (a<sub>1</sub> V a<sub>2</sub> V y<sub>1</sub>) V ... (a<sub>k-1</sub> V a<sub>k</sub> V y<sub>k-3</sub>)
+- Independent Set to Vertex Cover
+  - Set of nodes S is a vertex cover of graph G that is S touches every edge E in G, if and only if V-S are independent set in G
+  - First look for vertex cover of G with V - g nodes.
+  - If it exists take all nodes not within the cover
+  - Otherwise if it doesnt exist then the conversion cannot be made.
+- Independent Set to Clique
+  - First define the complement of a graph G to be G' = (V,E!) where E! contains unordered pairs of verticies not in E
+  - Then S is an independent set of G if and only if S is a clique of G'.
+  - These nodes have no edges between them if and only if they have all possible edges in them in G'
+  - So all we need to do is map an instance (G,g) of Independent Set to the corresponding instance (G',g) of Clique
+- Circuit SAT to SAT
+  - We need to rewrite in conjunctive normal form or in other words the AND of clauses
+  - For each gate g we create a variable g and model the effect of the gate with the following : 
+    - We add additional clauses and AND them together in order to produce the same result
+    - This is important because all problems can reduce to Cirucuit SAT then we can further reduce them to SAT so they are easier to work with.
+    - We can do this conversion in Polynomial time
