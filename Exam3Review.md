@@ -97,4 +97,22 @@ Exam 3 Review
       - More generally this is given a set of integers is there a subset whose sum is a specific number s
       - This is NP complete problem that is a specialized version of knapsack bcause it can be used to keep track of the number of items and their weights that add up to the max weight the robber can carry
 - What is the class of NP problems? 
-    - 
+    - There are two classes NP hard and NP easy, NP easy can be solved efficently and NP hard cannot
+    - The class of all search problems are termed NP.
+    - The class of all search problems solvable in polynomial time are termed P
+    - If P = NP we would be able to solve all search problems in polynomial time, that is why it is widely beleived that p != NP
+    - A search problem is NP-complete if all other search problems reduce to it.
+- What does it mean to reduce search problem A into search problem B?
+    - It means we are translating one search problem into another
+- What do you need to provide such a reduction?
+    - Polynomial time algorithm that transfers and instance of A into an instance of B
+    - Polynomial time algorithm that maps  a solution s of A back into a solution h(s) of B
+- When is a problem in the class co-NP problem?
+    - When its complement is an NP problem
+    - co_NP is when the answer is no
+    - An example of this is if we want to find a min cut from a graph with one node
+    - Many times these problems are both NP and co-NP
+
+###Examples of Reductions NP Complete
+- Show that the General sat problem SAT reduces to the 3-SAT problem
+  - 
