@@ -291,3 +291,14 @@ Exam 3 Review
   else
     replace s by s' with probability e^(-delta/T)
 ~~~
+
+###NP Continued
+- Euler and Rudrata
+  - Euler :
+    - If and only if the graph is connected and every vertex with the exception of the start and end should have an even degree
+    - Find at path that contains each edge exactly once
+    - Visits all edges
+  - Rudrata :
+    - Was wondering if there was a way to visit each square on the chess board if you are a knight from start to finish
+    - Visits all verticies
+    - Find a path that goes through each vertex exactly once
