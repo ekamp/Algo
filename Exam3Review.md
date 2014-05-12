@@ -209,4 +209,85 @@ Exam 3 Review
 
 - This will always produce a vertex cover at most twice that of the optimal solution or in otherwords has at most an approximation ratio of 2
 
+###Local Search Heuristics
+- How to tell when a distance problem is metric : 
+  - The problem must fall into one of the three following properties : 
+    - d(x,y) >= 0 for all x,y
+    - d(x,y) = 0 if and only if x = y
+    - d(x,y) = d(y,x)
+    - Triangle inequality
+- Clustering problem
+  - Have some data that we want to divide into groups
+  - Normally define distances between the groups and the data itself
+  - We have n points in space and k spheres to cover them
+  - Easiest way is to assign k points in space as sphere centers and assign the n points to the center closest to it
+  - Centers are chosen being that each center should be as far as possible from the centers that have been chosen already
 
+~~~c
+  Pick any point u in X as the first cluster center
+  for i = 2 to k
+    let ui be in X farthest from u1...ui-1
+  create k clusters : ci = {all x in X whose closest center is ui}
+~~~
+
+- To assign clusters to circles we define r or the distance from one center to another.
+- Then we assign all clusters to a corresponding sphere that is of r distance
+- When does a distance function satisfy metric properties?
+  - When using clustering our approximation ratio corresponds to the ratio of the optimal radius to the actual radius
+  - In this case the worst case we can have for the approximation ratio is 2r
+
+- Traveling Salesman Approximation Ratio
+  - If its edge weights satisfy the metric properties then the TSP can result in a 1.5 approximation ratio using the following algorithm.
+
+~~~c
+  Given any Graph G
+    Compute I(G,C) with C = n * a and run algorithm A on it
+    if the resulting tour has length < n*a
+      Conclude that G has a Rudrata path
+    else it has no Rudrata path
+~~~
+
+- This then proves that there can exist a polynomial time solution to TSP
+- Unless in the case P = NP there cannot exist a polynomial time solution to TSP
+
+- General Local Search Framework
+  - The algo looks like as follows :
+
+~~~c
+  let s be an initial solution
+  while there is some solution s' in the neighborhood of s
+    for which cost(s')< cost(s) : replace s by s'
+  return s
+~~~
+
+- Local Search on Traveling Salesman
+  - Each tour will take into consideration O(n^2) neighbors
+  - Can use n-change searches in which graphs are generated that differ by three paths
+  - When we use more and more differences we increase our chances of finding an oprimal solution
+
+- Local Search Graph Partitioning
+  - Input is an undirected graph and an integer between 0 and 1/2
+  - Output : a partition of the verticies into two groups
+  - First we can split into two evenly starting by switching verticies accross the cut
+
+- Local Search Optima
+  - Randomization
+    - Can be used to find a random local solution or choose a local move when several are avalible
+    - If there is a possiblity of finding a local solution represented as p then over 1/p runs a solution will be found
+    - More repetitions of a local search starting at a random solution has a decreasing probability of finding the optimal solution
+  - Simulated Annealing
+    - Increase the cost in hopes that the search will get opt solution
+    - Introduces the temperature T
+    - If T is 0 then it is the same cost of the previous example, but if T is large it has a varying cost from the original
+    - Trick is to start with a large T and generally reduce it to zero checking if you have found the optimal solution or not
+    - Increases the amount of movement you make but in many cases increases the chance of finding an optimal solution
+
+~~~c
+  let s be any starting solution
+  repeat
+  randomly chose a solution s' in the neighborhood of s 
+  if the change in the cost(s') and cost(s) is negative 
+    replace s by s'
+  else
+    replace s by s' with probability e^(-delta/T)
+~~~
